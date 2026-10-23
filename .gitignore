@@ -1,0 +1,21 @@
+# Local runtime data and credentials
+.movement/
+.env
+.env.*
+!.env.example
+
+# Build output
+/bin/
+/dist/
+/coverage.out
+.DS_Store
+
+# Frontend dependencies and regenerated embedded assets
+/web/node_modules/
+/internal/web/dist/
+/web/test-results/
+/web/playwright-report/
+
+# Python acceptance runner caches
+__pycache__/
+*.pyc

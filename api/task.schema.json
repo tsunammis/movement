@@ -1,0 +1,502 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "claim": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "actor": {
+              "type": "string"
+            },
+            "attempt_id": {
+              "type": "string"
+            },
+            "expires_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "token_hash": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "attempt_id",
+            "actor",
+            "token_hash",
+            "expires_at"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "completion": {
+      "additionalProperties": false,
+      "properties": {
+        "criteria": {
+          "anyOf": [
+            {
+              "items": {
+                "additionalProperties": false,
+                "properties": {
+                  "description": {
+                    "type": "string"
+                  },
+                  "id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "description"
+                ],
+                "type": "object"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "version": {
+          "minimum": 1,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "version",
+        "criteria"
+      ],
+      "type": "object"
+    },
+    "completion_check": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "criterion_ids": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "source_refs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "version": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "version",
+            "prompt",
+            "criterion_ids",
+            "source_refs"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "context": {
+      "additionalProperties": false,
+      "properties": {
+        "constraints": {
+          "anyOf": [
+            {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "notes": {
+          "type": "string"
+        },
+        "objective": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "objective",
+        "constraints",
+        "notes"
+      ],
+      "type": "object"
+    },
+    "context_version": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "created_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "created_by": {
+      "type": "string"
+    },
+    "delegation": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "assignee": {
+              "additionalProperties": false,
+              "properties": {
+                "display_name": {
+                  "type": "string"
+                },
+                "reference": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "display_name"
+              ],
+              "type": "object"
+            },
+            "delegated_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "expected_outcome": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "assignee",
+            "delegated_at",
+            "expected_outcome"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "due_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "execution_guidance": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "expected_outputs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "input_refs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "name": {
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "reference"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "prompt": {
+              "type": "string"
+            },
+            "required_capabilities": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "steps": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "version": {
+              "minimum": 1,
+              "type": "integer"
+            }
+          },
+          "required": [
+            "version",
+            "prompt",
+            "steps",
+            "input_refs",
+            "required_capabilities",
+            "expected_outputs"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "flow": {
+      "enum": [
+        "actionable",
+        "waiting_for"
+      ],
+      "type": "string"
+    },
+    "follow_up_at": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "id": {
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "ingestion": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "external_key": {
+              "type": "string"
+            },
+            "producer": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "producer",
+            "external_key"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "last_event_id": {
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "priority": {
+      "enum": [
+        "low",
+        "normal",
+        "high"
+      ],
+      "type": "string"
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "scheduled_for": {
+      "anyOf": [
+        {
+          "format": "date-time",
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "sources": {
+      "anyOf": [
+        {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "captured_at": {
+                "format": "date-time",
+                "type": "string"
+              },
+              "provider": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "reference": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "summary": {
+                "maxLength": 65536,
+                "type": "string"
+              }
+            },
+            "required": [
+              "provider",
+              "reference",
+              "captured_at",
+              "summary"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "status": {
+      "enum": [
+        "candidate",
+        "ready",
+        "in_progress",
+        "blocked",
+        "seems_completed",
+        "done",
+        "dismissed"
+      ],
+      "type": "string"
+    },
+    "tags": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "title": {
+      "maxLength": 500,
+      "minLength": 1,
+      "type": "string"
+    },
+    "updated_at": {
+      "format": "date-time",
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "revision",
+    "context_version",
+    "last_event_id",
+    "title",
+    "description",
+    "status",
+    "flow",
+    "priority",
+    "tags",
+    "created_at",
+    "updated_at",
+    "created_by",
+    "scheduled_for",
+    "due_at",
+    "follow_up_at",
+    "context",
+    "completion",
+    "sources"
+  ],
+  "title": "Movement task schema v1",
+  "type": "object"
+}

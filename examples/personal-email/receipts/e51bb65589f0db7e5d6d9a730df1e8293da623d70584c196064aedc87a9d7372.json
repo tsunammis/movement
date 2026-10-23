@@ -1,0 +1,8 @@
+{
+  "operation_id": "example-email-claim",
+  "input_digest": "e1f4baa81beb5e4f5720a03008febed0f5f529f33cb3521c173bf369c4f9bc73",
+  "task_id": "acdeacc5-eece-470d-b1b4-053406f5e7d7",
+  "revision": 2,
+  "event_id": "caa428fe-b4cc-42f8-a536-01f0953c85ba",
+  "claim_token": "a606b550-4a66-4e94-9fb9-135007fb0f2efa219827-05fe-4353-8dc4-07316154c295"
+}

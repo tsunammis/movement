@@ -1,0 +1,748 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "acknowledges": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "actor": {
+      "type": "string"
+    },
+    "attempt_id": {
+      "type": "string"
+    },
+    "changes": {
+      "additionalProperties": {},
+      "type": "object"
+    },
+    "check": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "attempt_id": {
+              "type": "string"
+            },
+            "check_version": {
+              "type": "integer"
+            },
+            "completion_version": {
+              "type": "integer"
+            },
+            "context_version": {
+              "type": "integer"
+            },
+            "criterion_results": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "criterion_id": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "evidence": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "description": {
+                                  "type": "string"
+                                },
+                                "excerpt": {
+                                  "type": "string"
+                                },
+                                "observed_at": {
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "reference": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "reference",
+                                "observed_at",
+                                "description"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "result": {
+                        "enum": [
+                          "met",
+                          "not_met",
+                          "unknown"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "criterion_id",
+                      "result",
+                      "evidence"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "guidance_version": {
+              "type": "integer"
+            },
+            "next_steps": {
+              "type": "string"
+            },
+            "observed_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "outcome": {
+              "description": "Work reports use progress, blocked or completion_proposed. Check reports use met, not_met or inconclusive. Late observations retain their original report outcome.",
+              "enum": [
+                "progress",
+                "blocked",
+                "completion_proposed",
+                "met",
+                "not_met",
+                "inconclusive"
+              ],
+              "type": "string"
+            },
+            "outputs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "provider",
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reconciles": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "task_revision_used": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "context_version",
+            "completion_version",
+            "task_revision_used",
+            "observed_at",
+            "outcome",
+            "summary",
+            "criterion_results",
+            "evidence",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "context_version": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "event_id": {
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "input_digest": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "observation": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "attempt_id": {
+              "type": "string"
+            },
+            "check_version": {
+              "type": "integer"
+            },
+            "completion_version": {
+              "type": "integer"
+            },
+            "context_version": {
+              "type": "integer"
+            },
+            "criterion_results": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "criterion_id": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "evidence": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "description": {
+                                  "type": "string"
+                                },
+                                "excerpt": {
+                                  "type": "string"
+                                },
+                                "observed_at": {
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "reference": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "reference",
+                                "observed_at",
+                                "description"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "result": {
+                        "enum": [
+                          "met",
+                          "not_met",
+                          "unknown"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "criterion_id",
+                      "result",
+                      "evidence"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "guidance_version": {
+              "type": "integer"
+            },
+            "next_steps": {
+              "type": "string"
+            },
+            "observed_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "outcome": {
+              "description": "Work reports use progress, blocked or completion_proposed. Check reports use met, not_met or inconclusive. Late observations retain their original report outcome.",
+              "enum": [
+                "progress",
+                "blocked",
+                "completion_proposed",
+                "met",
+                "not_met",
+                "inconclusive"
+              ],
+              "type": "string"
+            },
+            "outputs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "provider",
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reconciles": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "task_revision_used": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "context_version",
+            "completion_version",
+            "task_revision_used",
+            "observed_at",
+            "outcome",
+            "summary",
+            "criterion_results",
+            "evidence",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "operation_id": {
+      "type": "string"
+    },
+    "recorded_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "report": {
+      "anyOf": [
+        {
+          "additionalProperties": false,
+          "properties": {
+            "attempt_id": {
+              "type": "string"
+            },
+            "check_version": {
+              "type": "integer"
+            },
+            "completion_version": {
+              "type": "integer"
+            },
+            "context_version": {
+              "type": "integer"
+            },
+            "criterion_results": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "criterion_id": {
+                        "minLength": 1,
+                        "type": "string"
+                      },
+                      "evidence": {
+                        "anyOf": [
+                          {
+                            "items": {
+                              "additionalProperties": false,
+                              "properties": {
+                                "description": {
+                                  "type": "string"
+                                },
+                                "excerpt": {
+                                  "type": "string"
+                                },
+                                "observed_at": {
+                                  "format": "date-time",
+                                  "type": "string"
+                                },
+                                "reference": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "reference",
+                                "observed_at",
+                                "description"
+                              ],
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          {
+                            "type": "null"
+                          }
+                        ]
+                      },
+                      "result": {
+                        "enum": [
+                          "met",
+                          "not_met",
+                          "unknown"
+                        ],
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "criterion_id",
+                      "result",
+                      "evidence"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "evidence": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "excerpt": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "guidance_version": {
+              "type": "integer"
+            },
+            "next_steps": {
+              "type": "string"
+            },
+            "observed_at": {
+              "format": "date-time",
+              "type": "string"
+            },
+            "outcome": {
+              "description": "Work reports use progress, blocked or completion_proposed. Check reports use met, not_met or inconclusive. Late observations retain their original report outcome.",
+              "enum": [
+                "progress",
+                "blocked",
+                "completion_proposed",
+                "met",
+                "not_met",
+                "inconclusive"
+              ],
+              "type": "string"
+            },
+            "outputs": {
+              "anyOf": [
+                {
+                  "items": {
+                    "additionalProperties": false,
+                    "properties": {
+                      "description": {
+                        "type": "string"
+                      },
+                      "kind": {
+                        "type": "string"
+                      },
+                      "observed_at": {
+                        "format": "date-time",
+                        "type": "string"
+                      },
+                      "provider": {
+                        "type": "string"
+                      },
+                      "reference": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "kind",
+                      "provider",
+                      "reference",
+                      "observed_at",
+                      "description"
+                    ],
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "reconciles": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "summary": {
+              "type": "string"
+            },
+            "task_revision_used": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "context_version",
+            "completion_version",
+            "task_revision_used",
+            "observed_at",
+            "outcome",
+            "summary",
+            "criterion_results",
+            "evidence",
+            "outputs"
+          ],
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "revision": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "schema_version": {
+      "const": 1,
+      "type": "integer"
+    },
+    "sequence": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "summary": {
+      "type": "string"
+    },
+    "task_id": {
+      "pattern": "^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$",
+      "type": "string"
+    },
+    "type": {
+      "enum": [
+        "task_created",
+        "task_updated",
+        "task_claimed",
+        "claim_renewed",
+        "claim_released",
+        "work_reported",
+        "completion_checked",
+        "observation_recorded",
+        "observation_acknowledged"
+      ],
+      "type": "string"
+    }
+  },
+  "required": [
+    "schema_version",
+    "task_id",
+    "event_id",
+    "sequence",
+    "revision",
+    "context_version",
+    "type",
+    "actor",
+    "recorded_at",
+    "operation_id",
+    "input_digest",
+    "summary"
+  ],
+  "title": "Movement history frontmatter v1",
+  "type": "object"
+}

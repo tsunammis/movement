@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "id": "acdeacc5-eece-470d-b1b4-053406f5e7d7",
+  "revision": 3,
+  "context_version": 1,
+  "last_event_id": "b4891af5-f1f3-4378-a71b-a625d94804cf",
+  "title": "Write an email to Kevin",
+  "description": "Prepare a Jira project status email as a Gmail draft for review.",
+  "status": "seems_completed",
+  "flow": "actionable",
+  "priority": "normal",
+  "tags": [
+    "planning"
+  ],
+  "created_at": "2026-10-20T08:00:00Z",
+  "updated_at": "2026-10-23T13:20:00Z",
+  "created_by": "example-user",
+  "scheduled_for": null,
+  "due_at": "2026-10-23T15:00:00Z",
+  "follow_up_at": null,
+  "context": {
+    "objective": "Prepare a project update email for Kevin.",
+    "constraints": [
+      "Create a draft only. Do not send it.",
+      "Resolve recipient and project before acting; do not invent unavailable information."
+    ],
+    "notes": "All references are synthetic; Kevin and the project must be resolved in a real task."
+  },
+  "completion": {
+    "version": 1,
+    "criteria": [
+      {
+        "id": "recipient",
+        "description": "Draft addresses the intended Kevin."
+      },
+      {
+        "id": "content",
+        "description": "Draft contains status, deadline, risks and comment summary."
+      },
+      {
+        "id": "unsent",
+        "description": "The draft remains unsent and its reference and source evidence are recorded."
+      }
+    ]
+  },
+  "execution_guidance": {
+    "version": 1,
+    "prompt": "Research the specified Jira project and create a Gmail draft for Kevin, for user review.",
+    "steps": [
+      "Read project status and relevant Jira issues.",
+      "Check the deadline and documented delivery risks.",
+      "Summarize relevant recent comments with source references.",
+      "Compose and save a Gmail draft to the resolved recipient. Do not send.",
+      "Record the draft reference and evidence in Movement."
+    ],
+    "input_refs": [
+      {
+        "name": "jira_project",
+        "reference": "example://jira/project"
+      },
+      {
+        "name": "recipient",
+        "reference": "example://contacts/kevin"
+      }
+    ],
+    "required_capabilities": [
+      "Read the specified Jira project and comments",
+      "Create and read Gmail drafts"
+    ],
+    "expected_outputs": [
+      {
+        "kind": "email_draft",
+        "description": "Unsent Gmail project update draft for Kevin."
+      }
+    ]
+  },
+  "completion_check": {
+    "version": 1,
+    "prompt": "Read the draft referenced by the latest work report. Verify the intended recipient, status/deadline/comment summary, and unsent state. Report unknown if access or evidence is missing. Do not send.",
+    "criterion_ids": [
+      "recipient",
+      "content",
+      "unsent"
+    ],
+    "source_refs": [
+      "latest work report output reference"
+    ]
+  },
+  "sources": []
+}

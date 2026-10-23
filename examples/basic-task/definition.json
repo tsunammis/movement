@@ -1,0 +1,40 @@
+{
+  "completion": {
+    "version": 1,
+    "criteria": [
+      {
+        "id": "criterion-1",
+        "description": "Agenda covers goals, scope, decisions, and next steps."
+      }
+    ]
+  },
+  "context": {
+    "objective": "Produce a short agenda for user review.",
+    "constraints": [
+      "Do not send invitations or contact attendees."
+    ],
+    "notes": "The assistant will need the user's project context before drafting."
+  },
+  "description": "Prepare an agenda for the next project kickoff. Synthetic example; no message has been sent.",
+  "due_at": null,
+  "flow": "actionable",
+  "ingestion": {
+    "producer": "example-routine",
+    "external_key": "[\"example\",\"kickoff-001\",\"prepare-agenda\",\"once\"]"
+  },
+  "priority": "normal",
+  "scheduled_for": "2026-10-20T07:00:00Z",
+  "sources": [
+    {
+      "provider": "example",
+      "reference": "example://kickoff-001",
+      "captured_at": "2026-10-19T08:00:00Z",
+      "summary": "A kickoff agenda is needed. This is synthetic source data."
+    }
+  ],
+  "status": "candidate",
+  "tags": [
+    "planning"
+  ],
+  "title": "Draft the project kickoff agenda"
+}
