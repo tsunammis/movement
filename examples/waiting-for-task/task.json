@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "id": "b314c13c-4d12-404c-ad07-bdcbc2eb45ea",
+  "revision": 1,
+  "context_version": 1,
+  "last_event_id": "850cf317-b826-405a-8bff-b5a9b5d371e8",
+  "title": "Fill in the fortnightly",
+  "description": "Illustrative commitment: waiting for Nathan Delange to fill in the fortnightly by Friday.",
+  "status": "ready",
+  "flow": "waiting_for",
+  "priority": "normal",
+  "tags": [
+    "planning"
+  ],
+  "created_at": "2026-10-19T08:00:00Z",
+  "updated_at": "2026-10-19T08:00:00Z",
+  "created_by": "example-user",
+  "scheduled_for": null,
+  "due_at": "2026-10-23T15:00:00Z",
+  "follow_up_at": "2026-10-23T13:00:00Z",
+  "context": {
+    "objective": "Track delivery of the delegated fortnightly.",
+    "constraints": [
+      "Check only; do not edit the source or contact the delegate."
+    ],
+    "notes": "Friday 2026-10-23 at 17:00 Europe/Paris is an illustrative deadline, not an inferred user commitment. Illustrative occurrence: 2026-10-12 through 2026-10-25; verify the target period before applying the section-presence check."
+  },
+  "completion": {
+    "version": 1,
+    "criteria": [
+      {
+        "id": "A",
+        "description": "Section A is present."
+      },
+      {
+        "id": "B",
+        "description": "Section B is present."
+      },
+      {
+        "id": "C",
+        "description": "Section C is present."
+      },
+      {
+        "id": "D",
+        "description": "Section D is present."
+      }
+    ]
+  },
+  "completion_check": {
+    "version": 1,
+    "prompt": "Open https://foo.bar/in and check whether the document contains sections A, B, C, and D. Report each section as present, absent, or unknown with an excerpt or location. Report met only if all four are present. If access fails or content is incomplete, report inconclusive. Do not edit the page or contact Nathan.",
+    "criterion_ids": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "source_refs": [
+      "https://foo.bar/in"
+    ]
+  },
+  "delegation": {
+    "assignee": {
+      "display_name": "Nathan Delange"
+    },
+    "delegated_at": "2026-10-19T08:00:00Z",
+    "expected_outcome": "The fortnightly contains sections A, B, C, and D."
+  },
+  "sources": [],
+  "ingestion": {
+    "producer": "fortnightly-review",
+    "external_key": "[\"document\",\"https://foo.bar/in\",\"fill-fortnightly\",\"2026-10-12/2026-10-25\"]"
+  }
+}

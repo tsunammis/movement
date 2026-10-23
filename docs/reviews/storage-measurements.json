@@ -1,0 +1,107 @@
+{
+  "environment": {
+    "system": "Darwin",
+    "macos": "26.7.1",
+    "machine": "arm64"
+  },
+  "results": [
+    {
+      "tasks": 10,
+      "initial_events": 40,
+      "verified": {
+        "tasks": 10,
+        "events": 50,
+        "receipts": 50
+      },
+      "seed_seconds": 4.283,
+      "store_bytes": 42570,
+      "timings": {
+        "list_ms": {
+          "samples": 5,
+          "min_ms": 45.946,
+          "median_ms": 51.161,
+          "max_ms": 78.199
+        },
+        "get_ms": {
+          "samples": 5,
+          "min_ms": 45.679,
+          "median_ms": 52.7,
+          "max_ms": 80.521
+        },
+        "context_ms": {
+          "samples": 5,
+          "min_ms": 46.397,
+          "median_ms": 55.777,
+          "max_ms": 75.027
+        },
+        "update_ms": {
+          "samples": 5,
+          "min_ms": 90.078,
+          "median_ms": 92.111,
+          "max_ms": 145.05
+        },
+        "contended_read_ms": {
+          "samples": 15,
+          "min_ms": 46.703,
+          "median_ms": 129.504,
+          "max_ms": 292.913
+        },
+        "contended_update_ms": {
+          "samples": 5,
+          "min_ms": 133.452,
+          "median_ms": 216.78,
+          "max_ms": 262.438
+        }
+      }
+    },
+    {
+      "tasks": 50,
+      "initial_events": 200,
+      "verified": {
+        "tasks": 50,
+        "events": 210,
+        "receipts": 210
+      },
+      "seed_seconds": 32.855,
+      "store_bytes": 183815,
+      "timings": {
+        "list_ms": {
+          "samples": 5,
+          "min_ms": 165.36,
+          "median_ms": 192.813,
+          "max_ms": 206.447
+        },
+        "get_ms": {
+          "samples": 5,
+          "min_ms": 163.062,
+          "median_ms": 166.866,
+          "max_ms": 203.191
+        },
+        "context_ms": {
+          "samples": 5,
+          "min_ms": 159.426,
+          "median_ms": 167.77,
+          "max_ms": 204.067
+        },
+        "update_ms": {
+          "samples": 5,
+          "min_ms": 205.23,
+          "median_ms": 216.088,
+          "max_ms": 224.399
+        },
+        "contended_read_ms": {
+          "samples": 15,
+          "min_ms": 269.906,
+          "median_ms": 538.68,
+          "max_ms": 795.757
+        },
+        "contended_update_ms": {
+          "samples": 5,
+          "min_ms": 352.25,
+          "median_ms": 550.516,
+          "max_ms": 732.924
+        }
+      }
+    }
+  ]
+}
